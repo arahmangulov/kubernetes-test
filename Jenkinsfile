@@ -5,27 +5,27 @@ pipeline {
             yaml """
 kind: Pod
 metadata:
-name: jenkins-agent
+  name: jenkins-agent
 spec:
-containers:
-- name: kaniko
+  containers:
+  - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
     imagePullPolicy: Always
     command:
     - /busybox/cat
     tty: true
     volumeMounts:
-    - name: aws-secret
+      - name: aws-secret
         mountPath: /root/.aws/
-    - name: docker-registry-config
+      - name: docker-registry-config
         mountPath: /kaniko/.docker
-restartPolicy: Never
-volumes:
+  restartPolicy: Never
+  volumes:
     - name: aws-secret
-    secret:
+      secret:
         secretName: aws-secret
     - name: docker-registry-config
-    configMap:
+      configMap:
         name: docker-registry-config
 """
         }
