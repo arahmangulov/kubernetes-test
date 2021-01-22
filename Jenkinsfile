@@ -11,8 +11,8 @@ spec:
   - name: kaniko
     image: alpine:latest
     imagePullPolicy: Always
-    command:
-    - /bin/cat
+    command: ["/bin/sh"]
+    args: ["-c", "sleep 10 && echo Sleep expired > /dev/termination-log"]
     tty: true
 """
         }
