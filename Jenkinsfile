@@ -9,11 +9,11 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    image: alpine:3.13.0
+    image: gcr.io/kaniko-project/executor:debug
     imagePullPolicy: Always
     tty: true
     command: 
-    - /bin/cat
+    - /busybox/cat
   restartPolicy: Never
 """
         }
