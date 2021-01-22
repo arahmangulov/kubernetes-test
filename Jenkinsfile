@@ -12,7 +12,8 @@ spec:
     image: alpine:3.13.0
     imagePullPolicy: Always
     tty: true
-    command: /bin/cat
+    command: 
+    - /bin/cat
   restartPolicy: Never
 """
         }
