@@ -9,24 +9,11 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:debug
+    image: alpine:latest
     imagePullPolicy: Always
     command:
-    - /busybox/cat
+    - /bin/cat
     tty: true
-    volumeMounts:
-      - name: aws-secret
-        mountPath: /root/.aws/
-      - name: docker-registry-config
-        mountPath: /kaniko/.docker
-  restartPolicy: Never
-  volumes:
-    - name: aws-secret
-      secret:
-        secretName: aws-secret
-    - name: docker-registry-config
-      configMap:
-        name: docker-registry-config
 """
         }
     }
